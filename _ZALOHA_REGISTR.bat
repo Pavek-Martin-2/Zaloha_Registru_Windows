@@ -35,13 +35,12 @@ REM echo %file_reg%
 set file_rar=%dnes%_registr.rar
 REM echo %file_rar%
 
-REM byl problem v rezimu Admin. z nastavenim promenni pomoci prikazu set
+REM byl problem v rezimu Admin z nastavenim promenni pomoci prikazu set
 REM jako nahradu za retezec "C:\Users\DELL\Documents\zaloha\"
 REM tady mapriklad -  set cesta=C:\Users\DELL\Documents\zaloha\
-REM a nasledne pak prikaz napr. "del %cesta%*_registr.reg"
-REM dokoce to vypisovalo ze hodnota promenny %cesta% je "C:\Windows\system32\" !!!
-REM takze toto zde rozhodne nepouzivat, vypada to nebezpecne docela !
-REM a musim rict ze sem neprisel na to proc to dela
+REM a nasledne pak - del %cesta%*_registr.reg
+REM dokoce to vypisovalo ze hodnota %cesta% je C:\Windows\system32\ !!!
+REM takze toto zde nepouzivat !
 
 del "C:\Users\DELL\Documents\zaloha\*_registr.reg"
 del "C:\Users\DELL\Documents\zaloha\*_registr.rar"
@@ -56,9 +55,8 @@ rar a -m5 "C:\Users\DELL\Documents\zaloha\%file_rar%" "C:\Users\DELL\Documents\z
 REM parametr a=add ; -m5 = maximalni komprese ( viz. manual )
 sleep 1
 
-del "C:\Users\DELL\Documents\zaloha\%file_reg%"
-sleep 1
-
-rar t "C:\Users\DELL\Documents\zaloha\%file_rar%"
+REM smazani pres navratovy kod, smaze soubor *.reg pouze paklize test souboru *.rar dopadl uspesne
+REM otestovano, funguje jak ma
+rar t C:\Users\DELL\Documents\zaloha\%file_rar% && del C:\Users\DELL\Documents\zaloha\%file_reg%
 pause
 :end
