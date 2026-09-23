@@ -51,10 +51,10 @@ regedit /E "C:\Users\DELL\Documents\zaloha\%file_reg%"
 REM parametr "/E" bude asi neco jako Export
 sleep 1
 
-rar a -m5 -pheslo "C:\Users\DELL\Documents\zaloha\%file_rar%" "C:\Users\DELL\Documents\zaloha\%file_reg%"
-REM tady pridano ze parametr "-p" je password a heslo je "heslo"
+rar a -rr10p -m5 -pheslo "C:\Users\DELL\Documents\zaloha\%file_rar%" "C:\Users\DELL\Documents\zaloha\%file_reg%"
+REM tady pridano ze parametr "-p" je password a jeho hodnota je "heslo"
 REM takze arhiv bude chranem proti rozbaleni timto heslem, take je to nalepany na sobe "-pheslo"
-REM parametr a=add ; -m5 = maximalni komprese ( viz. manual )
+REM parametr a=add ; -m5 = maximalni komprese ( viz. manual ) -rr10p = prida zaznam 10 procent pro opravu dat
 sleep 1
 
 REM smazani pres navratovy kod, smaze soubor *.reg pouze paklize test souboru *.rar dopadl uspesne
